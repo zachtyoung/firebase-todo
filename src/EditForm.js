@@ -4,7 +4,7 @@ import db from './firebase'
 
 export default function EditForm(props) {
     return (
-        <div>
+        <>
                 <Formik
       initialValues={{ title: props.title, description: props.description }}
     //   validate={values => {
@@ -27,9 +27,6 @@ export default function EditForm(props) {
           setSubmitting(false)
           resetForm({})
           props.setIsEditing(false)
-          
-          
-
       }}
     >
       {({
@@ -67,6 +64,6 @@ export default function EditForm(props) {
         </form>
       )}
     </Formik>
-        </div>
+        </>
     )
 }

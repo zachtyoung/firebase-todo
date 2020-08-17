@@ -8,6 +8,7 @@ button:focus{
 }
 .App {
 background-color: #429ADF;
+background: #429ADF;
 background-image: url('./assets//back.jpg');
 background-size: cover;
 background-repeat: no-repeat;
@@ -50,8 +51,10 @@ padding: 1rem;
   background-color: white;
   border-radius: 100px;
   padding-right: 8px;
+  width: max-content;
 }
 .add-todo-submit{
+  display: block;
   background: none;
   border:none;
 }
@@ -121,33 +124,38 @@ input:focus{
   margin: 0;
   font-size: 36px;
 }
-.todo-form{
-  padding: 1rem;
 
-}
 .add-todo{
+  display: block;
   border-radius: 100px;
   padding-left: 3rem;
   padding-right: 1rem;
 }
 @media only screen and (max-width: 600px) {
   .todo-card{
-    top: 100px;
-  }
-  input{
-    font-size: 26px;
+    top: 120px;
   }
   .todo-list{
     max-height: 500px;
+    max-width: 95%;
+    margin: 0 auto;
   }
   .add-todo{
+
+    font-size: 23px;
     padding-left: 1.5rem;
     padding-right: .5rem;
   }
   .todo-card{
     max-width: 100%;
+    padding: 0;
   }
   .add-todo-form{
     padding-right: 0px;
+
   }
+  .add-todo-submit:hover{
+    transform: none;
+  }
+
 }
