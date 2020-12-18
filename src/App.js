@@ -7,7 +7,8 @@ import Navbar from './Navbar'
 function App() {
   const[todos, setTodos] =useState(null)
   useEffect(() => {
-    db.collection('todos').onSnapshot(snapshot =>{
+    db.collection('todos').orderBy('timestamp',"desc").onSnapshot(snapshot =>{
+      console.log(snapshot.docs)
       setTodos(snapshot.docs.map(doc =>({
         id:doc.id,
         ...doc.data()
@@ -26,11 +27,10 @@ function App() {
       <div className='todo-list'>
    {todos && todos.map(todo =>{
      return(
-       <TodoItem title={todo.title} description={todo.description} completed={todo.completed} id={todo.id}/>
+       <TodoItem key={todo.title}title={todo.title} description={todo.description} completed={todo.completed} id={todo.id} timestamp={todo.timestamp}/>
      
    )})}
    </div>
-   {/* <button onClick={addData}>Add data</button> */}
    </div>
    </div>
   );

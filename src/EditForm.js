@@ -7,17 +7,6 @@ export default function EditForm(props) {
         <>
                 <Formik
       initialValues={{ title: props.title, description: props.description }}
-    //   validate={values => {
-    //     const errors = {};
-    //     if (!values.email) {
-    //       errors.email = 'Required';
-    //     } else if (
-    //       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-    //     ) {
-    //       errors.email = 'Invalid email address';
-    //     }
-    //     return errors;
-    //   }}
       onSubmit={(values, { setSubmitting,resetForm }) => {
         db.collection('todos').doc(props.todoId).set({
             title: values.title,
@@ -37,7 +26,6 @@ export default function EditForm(props) {
         handleBlur,
         handleSubmit,
         isSubmitting,
-        /* and other goodies */
       }) => (
         <form onSubmit={handleSubmit}>
           <input
@@ -48,7 +36,6 @@ export default function EditForm(props) {
             onBlur={handleBlur}
             value={values.title}
           />
-          {/* {errors.email && touched.email && errors.email} */}
           <input
           placeholder='Description'
             type="text"
@@ -57,7 +44,6 @@ export default function EditForm(props) {
             onBlur={handleBlur}
             value={values.description}
           />
-          {/* {errors.password && touched.password && errors.password} */}
           <button type="submit" disabled={isSubmitting}>
             Update
           </button>
