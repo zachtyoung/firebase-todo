@@ -27,7 +27,7 @@ function App() {
       <div className='todo-list'>
    {todos && todos.map(todo =>{
      return(
-       <TodoItem key={todo.title}title={todo.title} description={todo.description} completed={todo.completed} id={todo.id} timestamp={todo.timestamp}/>
+       <TodoItem key={todo.timestamp}title={todo.title} description={todo.description} completed={todo.completed} id={todo.id} timestamp={todo.timestamp}/>
      
    )})}
    </div>
